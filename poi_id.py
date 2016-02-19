@@ -336,7 +336,7 @@ if True:
     print 
     if grid_search.param_grid in [param_grid_svm]:
         skbs = clf_best.named_steps['features'].transformer_list[2][1]
-        print skbs.scores_
+        #print skbs.scores_
        
         feats = []        
         list_scores = []            
@@ -355,8 +355,8 @@ if True:
             print("\t%s: %r" % (param_name, best_parameters[param_name]))
        
     else:
-        print clf_best.named_steps['skb']    
-        print clf_best.named_steps['skb'].scores_    
+        #print clf_best.named_steps['skb']    
+        #print clf_best.named_steps['skb'].scores_    
     
         feats = []        
         list_scores = []            
@@ -378,8 +378,9 @@ if True:
     time1 = round(time()-t0,2)
     print time1
     print "test_classifier time:" 
-    time2 = round(time()-t1, 2)
+    t1 = time()
     test_classifier(clf_best, my_dataset, full_features_list)
+    time2 = round(time()-t1, 2)
     print time2
     print "total time:", time2+time1
 print "-----------------------------------------------------------------------"
@@ -401,7 +402,6 @@ print "-----------------------------------------------------------------------"
 ### that the version of poi_id.py that you submit can be run on its own and
 ### generates the necessary .pkl files for validating your results.
 
-t1 = time()
 if full_report:
     for clf in [ dtc, gnc, knn, abc, rfc ]:
        test_classifier(clf, my_dataset, features_list)
