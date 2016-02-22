@@ -7,3 +7,5 @@ References used for Enron Free Responses
 - getting started with pipelines and gridsearch
 4. http://www.youtube.com/watch?v=xYqiIjaqydU&list=PLBv09BD7ez_7-4V3IJIzCHWQj9nd4rVWB
 - though this states naive bayes, I watched a lot of his videos 
+5. https://onlinecourses.science.psu.edu/stat507/node/71
+- Recall and Precision discussion
