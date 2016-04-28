@@ -28,7 +28,7 @@ The classification used in the dataset was whether or not an Enron employee was 
  "total_payments": 14.58,
  "total_stock_value": 13.19}
 ```
-#####Outiers
+####Outiers
 Outliers were determined by 2-D visualization, descriptive statistics, and data frame exploration of the features. The 2-D visualizations depicted outliers that could produce leverage on regressions; the standard deviations of the features were greater than all other descriptive statistics, signaling enormous range and variance; and data frame exploration revealed an agency, which is not an employee and thus outside of the scope of the goal.  Some notable outliers were "TOTAL" and "THE TRAVEL AGENCY IN THE PARK," both of which are not employees of Enron.  These outliers were popped from the data dictionary.  As was stated before, featureFormat() removes rows with the least amount of data, eliminating them from downstream use. 
 
 ###Feature Selection and Algorithm Selection
@@ -324,7 +324,7 @@ total time: 13.71
 
 The features scores done by SKB were consistent due to method of analysis: ANOVA.   The features selected were due to optimization done by GridSearch using the selected algorithm. 
 
-####Classifier Selection and Parameter Tunning
+###Classifier Selection and Parameter Tunning
 I selected the GNB Classifier for its simplicity.  The GNB did not need scaling; it works well with or without PCA; it required no tuning as parameters for the algorithm do not exist; its run times were fast.  The other algorithms that I tried are the following algorithms: SVM, DTC, ABC, and RFC.  The results of performance are in section 2.  In general, accuracy scores from highest to least -- while performing GridSearch -- were:  SVM, GNB, ABC, and DTC; precision scores were: SVM, GNB, ABC, and DTC; recall scores were:  GNB, ABC, DTC, and SVM; the run times were:  ABC, SVM, GNB. and DTC.  These results vary from the recursive algorithm RFECV().  The difference perhaps is attributed to the way the algorithms seeks the optimized solution.  RFECV() does not use SKB, which calculates feature selection via ANOVA, that is used by GridSearch via Pipeline.  RFECV() uses different combinations of features and is forced to eliminate the least contributing feature each iteration per its scoring.  These differences could be responsible for the disparate results.  The results for the GridSearch are below:       
 
 | Algorithm | Precision | Recall | Runtime (sec) |
