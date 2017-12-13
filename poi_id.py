@@ -38,9 +38,7 @@ with open("final_project_dataset.pkl", "r") as data_file:
 full_report = False
 
 ###############################################################################
-### Task 1: Select what features you'll use.
-### features_list is a list of strings, each of which is a feature name.
-### The first feature must be "poi".
+### features selection 
 features_list = ['poi','ratio_stock_to_pay', 'ratio_from_poi', \
                  'ratio_to_poi', 'ratio_cc_poi'] 
 
@@ -49,7 +47,7 @@ if full_report:
 
 
 ###############################################################################
-### Task 2: Remove some outliers
+### Remove outliers
 data_dict.pop("TOTAL",0)
 data_dict.pop("THE TRAVEL AGENCY IN THE PARK",0)
 
@@ -118,8 +116,7 @@ if full_report:
     examineData_Dict(data_dict)
 
 ###############################################################################
-### Task 3: Create new feature(s)
-#### features of interest to create new features
+### Creates new features
 foi_list = ['total_payments','total_stock_value','from_this_person_to_poi', \
             'from_poi_to_this_person', 'to_messages', 'from_messages', \
             'shared_receipt_with_poi']
@@ -249,11 +246,7 @@ if full_report:
 
 
 ###############################################################################
-### Task 4: Try a varity of classifiers
-### Please name your classifier clf for easy export below.
-### Note that if you want to do PCA or other multi-stage operations,
-### you'll need to use Pipelines. For more info:
-### http://scikit-learn.org/stable/modules/pipeline.html
+### classifiers
 
 if True:
     # initial components 
@@ -385,13 +378,8 @@ if True:
     print "total time:", time2+time1
 print "-----------------------------------------------------------------------"
 ############################################################################### 
-### Task 5: Tune your classifier. Because of the small size of the dataset, the script uses
-### stratified shuffle split cross validation. For more info: 
-### http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html
-
-### Task 6: Dump your classifier, dataset, and features_list so anyone can
-### check your results. Make sure that the version of poi_id.py that you submit can be run on its own and
-### generates the necessary .pkl files for validating your results.
+## Tune classifier
+### Generates the necessary .pkl files for validating results.
 
 if full_report:
     for clf in [ dtc, gnc, knn, abc, rfc ]:
