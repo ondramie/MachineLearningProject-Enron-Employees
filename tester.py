@@ -1,5 +1,5 @@
 #!/usr/bin/pickle
-""" a basic script for importing student's POI identifier,
+""" a basic script for importing POI identifier,
     and checking the results that they get from it 
  
     requires that the algorithm, dataset, and features list
@@ -31,20 +31,12 @@ def test_classifier(clf, dataset, feature_list, folds = 1000):
     labels, features = targetFeatureSplit(data)
     #
     #print "labels", labels    
-    cv = StratifiedShuffleSplit(labels, folds, random_state = 42)  
-    #print len(cv)
-    #print len(labels)    
+    cv = StratifiedShuffleSplit(labels, folds, random_state = 42)   
     true_negatives = 0
     false_negatives = 0
     true_positives = 0
     false_positives = 0
     for train_idx, test_idx in cv: 
-        #print "train_idx" 
-        #print "test/train", float(len(test_idx))/float(len(train_idx))       
-        #print len(train_idx) 
-        #print len(test_idx)
-        #print test_idx
-        #print "test_idx", test_idx
         features_train = []
         features_test  = []
         labels_train   = []
